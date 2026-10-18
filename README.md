@@ -24,14 +24,15 @@ HEIC/HEIF (iPhone) and RAW extensions (DNG, CR2, NEF, ARW, ORF, RW2) are read.
 
 ## Rulesets
 
-Rules are versioned, and your license says which version you bought.
+Every rule ships, and there is nothing to buy:
 
-- **v1 — basic**: EXIF, GPS, serial, artist, and the thumbnail hidden in the JPEG.
-- **v2 — full**: everything above plus HEIC, XMP, IPTC, PNG chunks, JPEG comments,
+- **basic**: EXIF, GPS, serial, artist, and the thumbnail hidden in the JPEG.
+- **full**: everything above plus HEIC, XMP, IPTC, PNG chunks, JPEG comments,
   data appended after the image, GPS in video, and PII in free text.
 
-A v1 license keeps working on v1 forever. Nothing is taken away. The upgrade exists
-because v2 is real work, not because the file format changed under you.
+Rule sets are versioned so that a saved configuration stays meaningful: a profile
+written against one version keeps applying against that version. That is a format
+decision, not a paywall.
 
 ## The model
 
@@ -53,20 +54,19 @@ photoscrub PATH --json       # machine readable
 
 Originals are never modified. `--scrub` refuses to write into the source folder.
 
-## License keys
+## Signing
 
-Keys are Ed25519-signed payloads; the signature travels with the key, so activation
-works offline. A key is bound to one machine. Private keys never leave the issuing
-machine (`~/.secrets/photoscrub/`).
+Keys are still Ed25519-signed, which is what lets activation work with no network
+and no phone home. That machinery is kept because it is how the offline builds
+verify they were not tampered with — it no longer gates anything.
 
 ```
-python3 tools/issue.py --email you@example.com --name "Buyer" --ruleset 2
+python3 tools/issue.py --email you@example.com --name "You" --ruleset 2
 ```
 
 ## License
 
-Proprietary, all rights reserved. See `LICENSE`.
+MIT. See [`LICENSE`](LICENSE).
 
-The source is closed. Buying a license key gives you the right to use the
-compiled application on one machine — it does not transfer any rights in
-this code, and redistribution is not permitted.
+Free to use, modify and redistribute. Every ruleset ships in full — there is no
+paid tier and no key to activate.
