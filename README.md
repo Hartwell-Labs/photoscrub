@@ -1,3 +1,13 @@
+> **Moved.** This repository now lives at
+> [`Hartwell-Labs/photoscrub`](https://github.com/Hartwell-Labs/photoscrub).
+> GitHub redirects the old address, so old links still work — but a
+> redirect is invisible. Anyone arriving from a bookmark never learns the
+> project moved, or that it is maintained from the organisation rather than
+> from a personal account.
+>
+> Copyright and history are unchanged. The repository was transferred, not
+> copied, so every commit, release, tag and issue came with it.
+
 # photoscrub
 
 Shows you what your photos leak — then removes it.
